@@ -25,11 +25,20 @@ Step 2. Add the dependency
 	}
   
   
+
+
   
   
   
 ### Example
 
+#####First
+        //初始化服务器
+        NetWorkRequest.getInstance().initGank(this);
+        //设置开发者模式
+        NetWorkRequest.setDeveloperMode(true);
+
+##### Next
         //此处调用ganklib方法来加载图片
         //getInstance() 获取接口管理员
         //initPic()  初始化图片接口
