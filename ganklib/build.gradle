@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.chendongde310'
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
+    //noinspection GradleDynamicVersion
+    compile 'com.nineoldandroids:library:2.4.0+'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+
+}
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#39a9e4</color>
+    <color name="colorPrimaryDark">#39a9e4</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--progress-->
+    <color name="universal_color_1" >#39a9e4</color>
+    <color name="universal_color_2" >#1ea2e7</color>
+    <color name="universal_color_3" >#0f6491</color>
+
+
+
+</resources>
