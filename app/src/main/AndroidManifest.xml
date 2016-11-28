@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".ui.PicActivity" />
         <activity android:name=".ui.NewsActivity"></activity>
+        <!--图片放大界面-->
+        <activity android:name="com.yy.www.libs.view.ViewerActivity" />
     </application>
 
 </manifest>

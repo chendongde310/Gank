@@ -9,11 +9,11 @@
 
         android:shape="ring"
         android:innerRadiusRatio="3"
-        android:thicknessRatio="8"
+        android:thicknessRatio="12"
         android:useLevel="false">
         <size
-            android:width="50dp"
-            android:height="50dp"/>
+            android:width="40dp"
+            android:height="40dp"/>
 
         <gradient
             android:type="sweep"

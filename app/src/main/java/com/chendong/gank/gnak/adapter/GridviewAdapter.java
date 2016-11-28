@@ -7,7 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chendong.gank.ganklib.bean.PicsBean;
+import com.chendong.gank.gnak.Constant;
 import com.chendong.gank.gnak.R;
 
 import java.util.List;
@@ -57,17 +59,28 @@ public class GridviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
+        //设置图片宽高
         ViewGroup.LayoutParams lp = viewHolder.img.getLayoutParams();
         lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         viewHolder.img.setLayoutParams(lp);
 
         if (!results.get(i).getFile().getUrl().equals(viewHolder.img.getTag())) {
-            Glide.with(context)
-                    .load(results.get(i).getFile().getUrl())
-                    .placeholder(R.drawable.progressbar_style)
-                    .crossFade()
-                    .into(viewHolder.img);
+
+            //**判断是否为gif图片
+            if(results.get(i).getFile().getMime_type().equals(Constant.FILE_GIF)){
+                Glide.with(context)
+                        .load(results.get(i).getFile().getUrl())
+                        .asGif()
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(viewHolder.img);
+            }else {
+                Glide.with(context)
+                        .load(results.get(i).getFile().getUrl())
+                        .placeholder(R.drawable.progressbar_style)
+                        .crossFade()
+                        .into(viewHolder.img);
+            }
             viewHolder.img.setTag(results.get(i).getFile().getUrl());
         }
 

@@ -19,5 +19,7 @@ public class App extends Application {
         NetWorkRequest.getInstance().initGank(this);
         //设置开发者模式
         NetWorkRequest.setDeveloperMode(true);
+
+
     }
 }
