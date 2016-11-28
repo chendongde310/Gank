@@ -35,7 +35,7 @@ Step 2. Add the dependency
 #####First
         //初始化服务器
         NetWorkRequest.getInstance().initGank(this);
-        //设置开发者模式
+        //设置开发者模式 ，默认为 false
         NetWorkRequest.setDeveloperMode(true);
 
 ##### Next
