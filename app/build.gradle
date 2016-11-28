@@ -24,6 +24,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0-beta1'
     compile 'com.orhanobut:logger:1.10'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //compile 'com.github.chendongde310:Gnak1602:{latest version}'
-    compile project(':ganklib')
+    compile 'com.github.chendongde310:Gank:1.0.0'
+    compile 'com.etsy.android.grid:library:1.0.5' //
+
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
