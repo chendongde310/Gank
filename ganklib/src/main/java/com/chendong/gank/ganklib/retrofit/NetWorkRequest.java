@@ -6,7 +6,6 @@ import com.chendong.gank.ganklib.config.AuthenticatorManager;
 import com.chendong.gank.ganklib.config.CommonInterceptor;
 import com.chendong.gank.ganklib.config.CookieManager;
 import com.chendong.gank.ganklib.config.HeaderInterceptor;
-import com.chendong.gank.ganklib.download.DownLoadService;
 import com.chendong.gank.ganklib.util.NetErrStringUtils;
 
 import java.io.File;
@@ -46,7 +45,7 @@ public class NetWorkRequest {
     private Map<String, Map<Integer, Call>> mRequestMap = new ConcurrentHashMap<>();
     private Retrofit mRetrofit;
     private OkHttpClient mOkHttpClient;
-    private DownLoadService mDownLoadService;
+
 
     private NetWorkRequest() {
 
@@ -86,7 +85,7 @@ public class NetWorkRequest {
                     .baseUrl(baseURL)//主机地址
                     .client(mOkHttpClient)
                     .build();
-            mDownLoadService = mRetrofit.create(DownLoadService.class);
+
             // log用拦截器
 
         }
@@ -130,15 +129,14 @@ public class NetWorkRequest {
                     .baseUrl(baseURL)//主机地址
                     .client(mOkHttpClient)
                     .build();
-            mDownLoadService = mRetrofit.create(DownLoadService.class);
         }
         return this;
     }
 
 
-    public DownLoadService getDownLoadService() {
-        return mDownLoadService;
-    }
+
+
+
 
     public <T> T create(Class<T> tClass) {
         return mRetrofit.create(tClass);

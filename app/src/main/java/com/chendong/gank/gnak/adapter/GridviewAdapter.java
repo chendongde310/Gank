@@ -66,22 +66,25 @@ public class GridviewAdapter extends BaseAdapter {
         viewHolder.img.setLayoutParams(lp);
 
         if (!results.get(i).getFile().getUrl().equals(viewHolder.img.getTag())) {
-
             //**判断是否为gif图片
-            if(results.get(i).getFile().getMime_type().equals(Constant.FILE_GIF)){
-                Glide.with(context)
-                        .load(results.get(i).getFile().getUrl())
-                        .asGif()
-                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                        .into(viewHolder.img);
-            }else {
-                Glide.with(context)
-                        .load(results.get(i).getFile().getUrl())
-                        .placeholder(R.drawable.progressbar_style)
-                        .crossFade()
-                        .into(viewHolder.img);
+            try {
+                if(results.get(i).getFile().getMime_type().equals(Constant.FILE_GIF)){
+                    Glide.with(context)
+                            .load(results.get(i).getFile().getUrl())
+                            .asGif()
+                            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                            .into(viewHolder.img);
+                }else {
+                    Glide.with(context)
+                            .load(results.get(i).getFile().getUrl())
+                            .placeholder(R.drawable.progressbar_style)
+                            .crossFade()
+                            .into(viewHolder.img);
+                }
+                viewHolder.img.setTag(results.get(i).getFile().getUrl());
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            viewHolder.img.setTag(results.get(i).getFile().getUrl());
         }
 
         return view;

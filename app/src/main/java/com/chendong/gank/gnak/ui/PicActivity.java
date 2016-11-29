@@ -19,8 +19,10 @@ import retrofit2.Response;
 
 public class PicActivity extends BaseActivity {
 
+
     @BindView(R.id.grid_view)
     StaggeredGridView gridView;
+    private GridviewAdapter adapter;
 
 
     @Override
@@ -36,40 +38,42 @@ public class PicActivity extends BaseActivity {
 
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        initPic();
+        if (adapter == null) {
+            initPic();
+        } else {
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void initPic() {
-
         //此处调用ganklib方法来加载图片
-        //getInstance() 获取接口管理员
-        //initPic()  初始化图片接口
-        //getPicList(10) 获取图片（条数）
-        //enqueue 异步请求
-        //Callback 回调   onResponse --成功      onFailure-- 失败
-        ApiManager.getInstance().initPic().getAllPicList().enqueue(new Callback<PicsBean>() {
-            @Override
-            public void onResponse(Call<PicsBean> call, final Response<PicsBean> response) {
-                GridviewAdapter adapter = new GridviewAdapter(PicActivity.this, response.body().getResults());
-                gridView.setAdapter(adapter);
-                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ApiManager.getInstance()  // 获取接口管实例
+                .initPic() //初始化图片接口
+                .getAllPicList() //  获取所有图片
+                .enqueue(new Callback<PicsBean>() { //enqueue 异步请求
+                    @Override//Callback 回调   onResponse --成功      onFailure-- 失败
+                    public void onResponse(Call<PicsBean> call, final Response<PicsBean> response) {
+                        adapter = new GridviewAdapter(PicActivity.this, response.body().getResults());
+                        gridView.setAdapter(adapter);
+                        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                //点击监听
+                                Toast.makeText(PicActivity.this, response.body().getResults().get(i).getFile().getName(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        //点击监听
-                        Toast.makeText(PicActivity.this, response.body().getResults().get(i).getFile().getName(), Toast.LENGTH_SHORT).show();
-
+                    public void onFailure(Call<PicsBean> call, Throwable t) {
+                        t.printStackTrace();
                     }
                 });
-            }
-
-            @Override
-            public void onFailure(Call<PicsBean> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
 
     }
+
+
 }

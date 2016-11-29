@@ -114,12 +114,6 @@ public class PicsBean {
             private String createdAt;
             private String __type;
             private String url;
-            /**
-             * owner : unknown
-             * size : 13641
-             * mime_type : image/jpeg
-             */
-
             private MetaDataBean metaData;
             private String bucket;
 
@@ -203,6 +197,23 @@ public class PicsBean {
                 this.bucket = bucket;
             }
 
+
+            @Override
+            public String toString() {
+                return "FileBean{" +
+                        "mime_type='" + mime_type + '\'' +
+                        ", updatedAt='" + updatedAt + '\'' +
+                        ", key='" + key + '\'' +
+                        ", name='" + name + '\'' +
+                        ", objectId='" + objectId + '\'' +
+                        ", createdAt='" + createdAt + '\'' +
+                        ", __type='" + __type + '\'' +
+                        ", url='" + url + '\'' +
+                        ", metaData=" + metaData.toString() +
+                        ", bucket='" + bucket + '\'' +
+                        '}';
+            }
+
             public static class MetaDataBean {
                 private String owner;
                 private int size;
@@ -230,6 +241,15 @@ public class PicsBean {
 
                 public void setMime_type(String mime_type) {
                     this.mime_type = mime_type;
+                }
+
+                @Override
+                public String toString() {
+                    return "MetaDataBean{" +
+                            "owner='" + owner + '\'' +
+                            ", size=" + size +
+                            ", mime_type='" + mime_type + '\'' +
+                            '}';
                 }
             }
         }
