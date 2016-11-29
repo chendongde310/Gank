@@ -31,12 +31,12 @@ public interface ReadService {
      * @return 返回所有文章列表
      */
     @GET("Read")
-    Call<ReadBean> getAllReadList();
+    Call<ReadBean> getAllReadList(@Query("order")String order);
 
     /**
      * 指定类型文章列表
      * @param size 返回数量，不要超过100
-     * @param type Map<String,String>  {"type":"fuli"}
+     * @param type Map<String,String>
      * @return 返回指定类型文章列表
      */
     @GET("Read")

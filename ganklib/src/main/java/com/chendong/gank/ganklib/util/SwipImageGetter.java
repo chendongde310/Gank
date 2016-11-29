@@ -31,6 +31,7 @@ public class SwipImageGetter {
 
                 double height = UScreen.getScreenWidth(context) / drawable.getIntrinsicWidth() * drawable.getIntrinsicHeight();
                 drawable.setBounds(0, 0, UScreen.getScreenWidth(context), (int) height);
+
                 return drawable;
             }
         };

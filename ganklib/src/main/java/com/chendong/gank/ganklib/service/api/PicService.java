@@ -22,7 +22,7 @@ public interface PicService {
      * @return 返回所有类型图片列表
      */
     @GET("Pic")
-    Call<PicsBean> getAllPicList();
+    Call<PicsBean> getAllPicList(@Query("order")String order);
 
 
 

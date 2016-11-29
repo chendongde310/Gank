@@ -18,11 +18,10 @@ import retrofit2.http.Query;
 public interface NewsService {
     /**
      * 获取所有新闻
-     * @param size 返回数量，不要超过100
      * @return 返回所有类型新闻列表
      */
     @GET("News")
-    Call<NewsBean> getAllNewsList();
+    Call<NewsBean> getAllNewsList(@Query("order")String order);
 
 
 

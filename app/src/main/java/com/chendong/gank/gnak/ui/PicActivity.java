@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.chendong.gank.ganklib.bean.PicsBean;
-import com.chendong.gank.ganklib.service.ApiManager;
+import com.chendong.gank.ganklib.service.manager.PicManager;
 import com.chendong.gank.gnak.BaseActivity;
 import com.chendong.gank.gnak.R;
 import com.chendong.gank.gnak.adapter.GridviewAdapter;
@@ -51,11 +51,10 @@ public class PicActivity extends BaseActivity {
 
     private void initPic() {
         //此处调用ganklib方法来加载图片
-        ApiManager.getInstance()  // 获取接口管实例
-                .initPic() //初始化图片接口
-                .getAllPicList() //  获取所有图片
-                .enqueue(new Callback<PicsBean>() { //enqueue 异步请求
-                    @Override//Callback 回调   onResponse --成功      onFailure-- 失败
+        PicManager.getInstance()                           // 获取接口实例
+                .getAllPicList()                           //  获取所有图片
+                .enqueue(new Callback<PicsBean>() {        //enqueue 异步请求
+                    @Override                              //Callback 回调   onResponse --成功      onFailure-- 失败
                     public void onResponse(Call<PicsBean> call, final Response<PicsBean> response) {
                         adapter = new GridviewAdapter(PicActivity.this, response.body().getResults());
                         gridView.setAdapter(adapter);
@@ -72,7 +71,6 @@ public class PicActivity extends BaseActivity {
                         t.printStackTrace();
                     }
                 });
-
     }
 
 

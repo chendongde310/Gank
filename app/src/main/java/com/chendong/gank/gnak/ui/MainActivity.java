@@ -3,26 +3,19 @@ package com.chendong.gank.gnak.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.chendong.gank.gnak.BaseActivity;
 import com.chendong.gank.gnak.R;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
  * 作者：陈东   www.renwey.com
  * 日期：2016/11/25 - 16:18
- * !!!!简单的接口调用demo,测试的时候请确保周围没人。不然后果自负!!!
+ * !!!!测试的时候请确保周围没人。不然后果自负!!!
  */
 public class MainActivity extends BaseActivity {
 
-
-    @BindView(R.id.button)
-    Button picButton;
-    @BindView(R.id.button2)
-    Button newsButton;
 
 
 
