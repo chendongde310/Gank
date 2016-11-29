@@ -11,6 +11,8 @@ import com.chendong.gank.ganklib.retrofit.NetWorkRequest;
  */
 public class App extends Application {
 
+    private static final String YOU_URL = "";
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -19,6 +21,18 @@ public class App extends Application {
         NetWorkRequest.getInstance().initGank(this);
         //设置开发者模式
         NetWorkRequest.setDeveloperMode(true);
+
+
+        /*
+        //自定义retrofit YOU_URL
+        NetWorkRequest.getInstance().init(this,YOU_URL);
+        //设置开发者模式
+        NetWorkRequest.setDeveloperMode(true);
+
+
+        //使用方法
+        NetWorkRequest.getInstance().create(YourService.class);
+        */
 
 
     }
