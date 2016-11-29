@@ -43,19 +43,20 @@ Step 2. Add the dependency
         NetWorkRequest.setDeveloperMode(true);
 
 ##### Next
-		//调用图片接口
-                PicManager.getInstance()// 获取接口实例
-                .getAllPicList()//  获取所有图片
+
+            PicManager.getInstance()// 获取图片接口管理
+                .getAllPicList()//  获取所有图片
                 .enqueue(new Callback<PicsBean>() {//enqueue 异步请求
-                    @Override //Callback 回调   onResponse --成功      onFailure-- 失败
+                    @Override//Callback 回调   onResponse --成功      onFailure-- 失败
                     public void onResponse(Call<PicsBean> call, final Response<PicsBean> response) {
                         adapter = new GridviewAdapter(PicActivity.this, response.body().getResults());
                         gridView.setAdapter(adapter);
                         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                              //  xxx...
-                            }
+                                
+                               // .XXX
+                            }
                         });
                     }
 
