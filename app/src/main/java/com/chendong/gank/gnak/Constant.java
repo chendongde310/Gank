@@ -9,4 +9,5 @@ public interface Constant {
 
     String FILE_GIF  = "image/gif";
     String FILE_JPEG  = "image/jpeg";
+    String DEFAULT_IMG_URL="http://ac-nuiddhh1.clouddn.com/5faf2cbfcbf6d04a8c59.jpg";
 }

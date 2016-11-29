@@ -5,6 +5,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import com.chendong.gank.ganklib.bean.NewsBean;
 import com.chendong.gank.ganklib.service.manager.NewsManager;
 import com.chendong.gank.ganklib.util.SwipImageGetter;
 import com.chendong.gank.gnak.BaseActivity;
+import com.chendong.gank.gnak.Constant;
 import com.chendong.gank.gnak.R;
 
 import java.util.List;
@@ -36,6 +38,8 @@ public class NewsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
     }
 
     @Override
@@ -76,22 +80,15 @@ public class NewsActivity extends BaseActivity {
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
                 View view1;
-                if (null != results.get(i).getBanner()) {
-                    view1 = LinearLayout.inflate(NewsActivity.this, R.layout.adapter_news_list_pic, null);
-                    TextView title = (TextView) view1.findViewById(R.id.title);
-                    ImageView imageView = (ImageView) view1.findViewById(R.id.img);
-                    title.setText(results.get(i).getTitle());
-                    Glide.with(NewsActivity.this)
-                            .load(results.get(i).getBanner().getUrl())
-                            .centerCrop()
-                            .into(imageView);
-                } else {
-                    view1 = LinearLayout.inflate(NewsActivity.this, R.layout.adapter_news_list_not_pic, null);
-                    TextView title = (TextView) view1.findViewById(R.id.title);
-                    TextView content = (TextView) view1.findViewById(R.id.content);
-                    title.setText(results.get(i).getTitle());
-                    content.setText(Html.fromHtml(results.get(i).getContent()));
-                }
+
+                view1 = LinearLayout.inflate(NewsActivity.this, R.layout.adapter_news_list_pic, null);
+                TextView title = (TextView) view1.findViewById(R.id.title);
+                ImageView imageView = (ImageView) view1.findViewById(R.id.img);
+                title.setText(results.get(i).getTitle());
+                Glide.with(NewsActivity.this)
+                        .load(null == results.get(i).getBanner() ? Constant.DEFAULT_IMG_URL : results.get(i).getBanner().getUrl())
+                        .centerCrop()
+                        .into(imageView);
                 return view1;
             }
         });
@@ -99,7 +96,7 @@ public class NewsActivity extends BaseActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    //查看新闻详情
+                //查看新闻详情
             }
         });
 

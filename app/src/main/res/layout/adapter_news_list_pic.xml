@@ -2,25 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="16dp"
 
      >
     <ImageView
+
         android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:src="@drawable/progressbar_style" />
 
 
         <TextView
+
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:padding="16dp"
             android:background="#57080808"
             android:text="标题"
             android:textColor="#ffffff"
             android:textSize="18sp"
+            android:maxLines="2"
             android:layout_alignBottom="@+id/img"
             android:layout_alignParentEnd="true" />
 
