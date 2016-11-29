@@ -5,6 +5,8 @@
 视频 、音乐陆续添加中
 
 提供给gsd1602的小伙伴免费使用
+
+点击下载 [Demo](http://ac-nuiddhh1.clouddn.com/62b258a99256dd8f2f33.apk).
 ------------------------------------------------
 
 ### Usage
@@ -31,11 +33,13 @@ Step 2. Add the dependency
   
   
 ### Example
-
+####Gank
 #####First
+在Application中初始化
+
         //初始化服务器
         NetWorkRequest.getInstance().initGank(this);
-        //设置开发者模式 ，默认为 false
+        //设置开发者模式 ，默认为 false
         NetWorkRequest.setDeveloperMode(true);
 
 ##### Next
@@ -56,3 +60,17 @@ Step 2. Add the dependency
                 t.printStackTrace();
             }
         });
+
+####customization
+在Application中初始化
+
+       //自定义retrofit      
+        NetWorkRequest.getInstance().init(this,YOU_URL);
+        //设置开发者模式
+        NetWorkRequest.setDeveloperMode(true);
+
+
+        //使用方法
+        NetWorkRequest.getInstance().create(YourService.class);
+
+
