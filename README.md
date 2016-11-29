@@ -33,7 +33,8 @@ Step 2. Add the dependency
   
   
 ### Example
-####Gank
+####Gank  -   Gank服务器资源
+--------------------------------------------
 #####First
 在Application中初始化
 
@@ -58,7 +59,8 @@ Step 2. Add the dependency
                     }
                 });
 
-####customization
+####customization    -   自定义
+--------------------------------------------
 在Application中初始化
 
        //自定义retrofit      
