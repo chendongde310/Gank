@@ -1,4 +1,4 @@
-package com.chendong.gank.gnak;
+package com.chendong.gank.gank1206;
 
 import android.app.Application;
 

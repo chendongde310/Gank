@@ -1,11 +1,11 @@
-package com.chendong.gank.gnak.ui;
+package com.chendong.gank.gank1206.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.chendong.gank.gnak.BaseActivity;
-import com.chendong.gank.gnak.R;
+import com.chendong.gank.gank1206.BaseActivity;
+import com.chendong.gank.gank1206.R;
 
 import butterknife.OnClick;
 

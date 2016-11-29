@@ -1,4 +1,4 @@
-package com.chendong.gank.gnak.ui;
+package com.chendong.gank.gank1206.ui;
 
 import android.os.Bundle;
 import android.text.Html;
@@ -17,9 +17,9 @@ import com.bumptech.glide.Glide;
 import com.chendong.gank.ganklib.bean.NewsBean;
 import com.chendong.gank.ganklib.service.manager.NewsManager;
 import com.chendong.gank.ganklib.util.SwipImageGetter;
-import com.chendong.gank.gnak.BaseActivity;
-import com.chendong.gank.gnak.Constant;
-import com.chendong.gank.gnak.R;
+import com.chendong.gank.gank1206.BaseActivity;
+import com.chendong.gank.gank1206.Constant;
+import com.chendong.gank.gank1206.R;
 
 import java.util.List;
 

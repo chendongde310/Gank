@@ -1,4 +1,4 @@
-package com.chendong.gank.gnak;
+package com.chendong.gank.gank1206;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

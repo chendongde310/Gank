@@ -1,4 +1,4 @@
-package com.chendong.gank.gnak.adapter;
+package com.chendong.gank.gank1206.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chendong.gank.ganklib.bean.PicsBean;
-import com.chendong.gank.gnak.Constant;
-import com.chendong.gank.gnak.R;
+import com.chendong.gank.gank1206.Constant;
+import com.chendong.gank.gank1206.R;
 
 import java.util.List;
 
@@ -73,14 +73,13 @@ public class GridviewAdapter extends BaseAdapter {
                     Glide.with(context)
                             .load(results.get(i).getFile().getUrl())
                             .asGif()
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                             .into(viewHolder.img);
                 }else {
                     Glide.with(context)
                             .load(results.get(i).getFile().getUrl())
                             .placeholder(R.drawable.progressbar_style)
                             .crossFade()
-                            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                             .into(viewHolder.img);
                 }
                 viewHolder.img.setTag(results.get(i).getFile().getUrl());

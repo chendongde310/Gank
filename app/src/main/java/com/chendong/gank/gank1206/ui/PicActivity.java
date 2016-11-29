@@ -1,4 +1,4 @@
-package com.chendong.gank.gnak.ui;
+package com.chendong.gank.gank1206.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.chendong.gank.ganklib.bean.PicsBean;
 import com.chendong.gank.ganklib.service.manager.PicManager;
-import com.chendong.gank.gnak.BaseActivity;
-import com.chendong.gank.gnak.R;
-import com.chendong.gank.gnak.adapter.GridviewAdapter;
+import com.chendong.gank.gank1206.BaseActivity;
+import com.chendong.gank.gank1206.R;
+import com.chendong.gank.gank1206.adapter.GridviewAdapter;
 import com.etsy.android.grid.StaggeredGridView;
 
 import butterknife.BindView;
