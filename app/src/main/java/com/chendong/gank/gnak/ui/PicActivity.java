@@ -3,6 +3,7 @@ package com.chendong.gank.gnak.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.chendong.gank.ganklib.bean.PicsBean;
 import com.chendong.gank.ganklib.service.ApiManager;
@@ -42,6 +43,7 @@ public class PicActivity extends BaseActivity {
     }
 
     private void initPic() {
+
         //此处调用ganklib方法来加载图片
         //getInstance() 获取接口管理员
         //initPic()  初始化图片接口
@@ -56,6 +58,8 @@ public class PicActivity extends BaseActivity {
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        //点击监听
+                        Toast.makeText(PicActivity.this, response.body().getResults().get(i).getFile().getName(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
